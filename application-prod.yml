@@ -7,14 +7,17 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/HOTEL_MANAGEMENT
     username: root
     password: root
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
   config:
-    import: configserver:http://localhost:8086
+    import: "optional:configserver:http://localhost:8086"
